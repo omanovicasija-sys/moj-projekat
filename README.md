@@ -17,7 +17,7 @@ Stranica je izrađena koristeći:
 - Prilagođen dizajn za mobilne uređaje
 
 ## Kako koristiti
-1. Otvori [stranicu kviza](https://tvoje-korisnicko-ime.github.io/moj-projekat/).
+1. Otvori [stranicu kviza](https://github.com/omanovicasija-sys/moj-projekat.git).
 2. Odaberi oblast koja te zanima.
 3. Klikni na **"Počni kviz"** i odgovaraj na pitanja.
 
