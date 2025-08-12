@@ -1,0 +1,174 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kviz iz geografije</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #b8ebf5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .quiz-container {
+            background-color: #96cbd6;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 90%; /* Adjusted to 90% of the screen width */
+            max-width: 400px; /* Prevent it from becoming too large on big screens */
+            margin: 0 auto;
+        }
+
+        .question {
+            font-size: 18px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .answer {
+            display: block;
+            background-color: lightblue;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-align: center;
+        }
+
+        .answer:hover {
+            background-color: #dcdcdc;
+        }
+
+        #result {
+            font-size: 18px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #start-btn {
+            background-color: darkblue;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .quiz-container {
+                width: 100%; /* Full width for smaller screens */
+                max-width: none; /* No max width on small screens */
+            }
+
+            .question {
+                font-size: 16px; /* Adjust font size for smaller screens */
+            }
+
+            .answer {
+                font-size: 14px; /* Adjust answer font size for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <div id="quiz">
+        <div class="question" id="question-text">Pitanje će biti prikazano ovdje.</div>
+        <button class="answer" id="answer1" onclick="checkAnswer(0)">Odgovor 1</button>
+        <button class="answer" id="answer2" onclick="checkAnswer(1)">Odgovor 2</button>
+        <button class="answer" id="answer3" onclick="checkAnswer(2)">Odgovor 3</button>
+        <button class="answer" id="answer4" onclick="checkAnswer(3)">Odgovor 4</button>
+        <div id="result"></div>
+        <button id="start-btn" onclick="startQuiz()">Počni kviz</button>
+    </div>
+</div>
+
+<script>
+    const questions = [
+        {
+            question: "Koji je najveći okean na svijetu?",
+            answers: ["Atlantski okean", "Indijski okean", "Pacifički okean", "Arktički okean"],
+            correct: 2
+        },
+        {
+            question: "Koja država ima najviše stanovnika na svijetu?",
+            answers: ["Indija", "Sjedinjene Američke Države", "Kina", "Rusija"],
+            correct: 2
+        },
+        {
+            question: "Koji je glavni grad Francuske?",
+            answers: ["London", "Berlin", "Pariz", "Madrid"],
+            correct: 2
+        },
+        {
+            question: "Koja rijeka je najduža na svijetu?",
+            answers: ["Amazon", "Nil", "Misisipi", "Jangce"],
+            correct: 1
+        },
+        {
+            question: "Koja država se prostire na dva kontinenta?",
+            answers: ["Turska", "Egipat", "Rusija", "Kanada"],
+            correct: 0
+        },
+        {
+            question: "Koji je najveći kontinent na svijetu?",
+            answers: ["Afrika", "Azija", "Evropa", "Amerika"],
+            correct: 1
+        }
+    ];
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    function startQuiz() {
+        score = 0;
+        currentQuestionIndex = 0;
+        document.getElementById("result").innerHTML = "";
+        document.getElementById("start-btn").style.display = "none";
+        displayQuestion();
+    }
+
+    function displayQuestion() {
+        const question = questions[currentQuestionIndex];
+        document.getElementById("question-text").innerHTML = question.question;
+        document.getElementById("answer1").innerHTML = question.answers[0];
+        document.getElementById("answer2").innerHTML = question.answers[1];
+        document.getElementById("answer3").innerHTML = question.answers[2];
+        document.getElementById("answer4").innerHTML = question.answers[3];
+    }
+
+    function checkAnswer(answerIndex) {
+        const question = questions[currentQuestionIndex];
+        if (answerIndex === question.correct) {
+            score++;
+        }
+        currentQuestionIndex++;
+        if (currentQuestionIndex < questions.length) {
+            displayQuestion();
+        } else {
+            showResult();
+        }
+    }
+
+    function showResult() {
+        document.getElementById("result").innerHTML = `Tvoj rezultat je: ${score} od ${questions.length}`;
+        document.getElementById("start-btn").style.display = "inline-block";
+        document.getElementById("start-btn").innerHTML = "Ponovo pokušaj";
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,185 @@
+<html>
+<head>
+<meta charset="UTF-8">
+    <title>Kviz iz historije</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #b8ebf5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .quiz-container {
+            background-color: #96cbd6;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 90%; /* Set the width to 90% of the screen */
+            max-width: 400px; /* Max width of 400px to prevent it from being too large on bigger screens */
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        .question {
+            font-size: 18px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .answer {
+            display: block;
+            background-color: lightblue;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 16px;
+        }
+
+        .answer:hover {
+            background-color: #dcdcdc;
+        }
+
+        #result {
+            font-size: 18px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #start-btn {
+            background-color: darkblue;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        /* Responsive design adjustments */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            .quiz-container {
+                width: 100%; /* Full width on small screens */
+                max-width: none; /* Remove max width */
+            }
+
+            .question {
+                font-size: 16px; /* Smaller font size for mobile */
+            }
+
+            .answer {
+                font-size: 14px; /* Smaller font size for answers */
+                padding: 12px; /* Adjust padding for better touch interaction */
+            }
+
+            #start-btn {
+                font-size: 14px; /* Adjust button font size */
+                padding: 12px; /* Adjust button padding */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <div id="quiz">
+        <div class="question" id="question-text">Pitanje će biti prikazano ovdje.</div>
+        <button class="answer" id="answer1" onclick="checkAnswer(0)">Odgovor 1</button>
+        <button class="answer" id="answer2" onclick="checkAnswer(1)">Odgovor 2</button>
+        <button class="answer" id="answer3" onclick="checkAnswer(2)">Odgovor 3</button>
+        <button class="answer" id="answer4" onclick="checkAnswer(3)">Odgovor 4</button>
+        <div id="result"></div>
+        <button id="start-btn" onclick="startQuiz()">Počni kviz</button>
+    </div>
+</div>
+
+<script>
+    const questions = [
+        {
+            question: "Ko je bio prvi car Rimskog carstva?",
+            answers: ["Julius Caesar", "Augustus", "Nero", "Trajan"],
+            correct: 1
+        },
+        {
+            question: "Kada je počeo Prvi svjetski rat?",
+            answers: ["1914. godina", "1912. godina", "1939. godina", "1941. godina"],
+            correct: 0
+        },
+        {
+            question: "Koji je bio glavni grad Jugoslavije od 1945. do 1992. godine?",
+            answers: ["Beograd", "Zagreb", "Ljubljana", "Sarajevo"],
+            correct: 0
+        },
+        {
+            question: "Koji je bio najpoznatiji vladar Egipta tokom novog kraljevstva?",
+            answers: ["Tutankamon", "Ramses II", "Kleopatra", "Akhenaton"],
+            correct: 1
+        },
+        {
+            question: "Ko je bio vladar Francuske tokom Francuske revolucije?",
+            answers: ["Napoleon Bonaparte", "Louis XVI", "Charlemagne", "Henry IV"],
+            correct: 1
+        },
+        {
+            question: "Koji je bio glavni cilj Spartakovih ustanka?",
+            answers: ["Sloboda robovima", "Osvojiti Rim", "Pobiti senatora", "Pobiti vojnike"],
+            correct: 0
+        }
+    ];
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    function startQuiz() {
+        score = 0;
+        currentQuestionIndex = 0;
+        document.getElementById("result").innerHTML = "";
+        document.getElementById("start-btn").style.display = "none";
+        displayQuestion();
+    }
+
+    function displayQuestion() {
+        const question = questions[currentQuestionIndex];
+        document.getElementById("question-text").innerHTML = question.question;
+        document.getElementById("answer1").innerHTML = question.answers[0];
+        document.getElementById("answer2").innerHTML = question.answers[1];
+        document.getElementById("answer3").innerHTML = question.answers[2];
+        document.getElementById("answer4").innerHTML = question.answers[3];
+    }
+
+    function checkAnswer(answerIndex) {
+        const question = questions[currentQuestionIndex];
+        if (answerIndex === question.correct) {
+            score++;
+        }
+        currentQuestionIndex++;
+        if (currentQuestionIndex < questions.length) {
+            displayQuestion();
+        } else {
+            showResult();
+        }
+    }
+
+    function showResult() {
+        document.getElementById("result").innerHTML = `Tvoj rezultat je: ${score} od ${questions.length}`;
+        document.getElementById("start-btn").style.display = "inline-block";
+        document.getElementById("start-btn").innerHTML = "Ponovo pokušaj";
+    }
+</script>
+
+</body>
+</html>

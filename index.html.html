@@ -1,0 +1,266 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>QUIZ</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script type="text/javascript">
+    window.onscroll = function() {
+        var scrollPosition = window.scrollY;
+        var header = document.getElementById('header');
+        if (scrollPosition > 0) {
+            header.style.height = Math.max(800 - scrollPosition, 100) + 'px';
+        } else {
+            header.style.height = '800px'; 
+        }
+    };
+</script>
+
+<style type="text/css">
+    body {
+        background-color: #50b1cc;
+        font-family:  cursive;
+        margin: 0;
+        padding: 0;
+    }
+	main {
+    margin-top: 800px; 
+}
+
+    /* Header */
+    #header {
+        background-image: url("https://t4.ftcdn.net/jpg/09/61/71/67/360_F_961716788_ZdoJmO6anGuzHEb7Y1wHODsYZnPvdPc8.jpg");
+        background-size: cover;
+        height: 800px;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: height 0.7s ease;
+    }
+
+    .header h1 {
+        color: darkblue;
+        font-size: 4em;
+        padding-top: 150px;
+        animation-duration: 3s;
+        animation-name: colorChange;
+        animation-iteration-count: infinite;
+    }
+
+    @keyframes colorChange {
+        0% { color: darkblue; }
+        50% { color: white; }
+        100% { color: darkblue; }
+    }
+
+    /* Navbar */
+    #nav {
+        background-color: #3aaac9;
+        height: 50px;
+        width: 100%;
+        border: 1px solid darkblue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 20px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+    }
+
+    #nav a {
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+        margin: 0 15px;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+
+    #nav a:hover {
+        color: darkblue;
+        cursor: pointer;
+    }
+
+    /* Main Section */
+     .content-section, .content-section2, .content-section3 {
+        background-color: #47adc9;
+        border: 1px solid grey;
+        text-align: center;
+        border-radius: 10px;
+        width: 90%;
+        margin: 30px auto;
+        padding: 20px;
+    }
+
+    .content-section, .content-section2, .content-section3 {
+        width: 90%;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Footer */
+    #footer {
+        background-color: #3aaac9;
+        height: 70px;
+        width: 100%;
+        border: 1px solid darkblue;
+        text-align: center;
+        padding: 20px;
+        color: darkblue;
+        position: relative;
+        animation-duration: 3s;
+        animation-name: colorChangeFooter;
+        animation-iteration-count: infinite;
+    }
+
+    @keyframes colorChangeFooter {
+        0% { color: darkblue; }
+        50% { color: #480854; }
+        100% { color: darkblue; }
+    }
+
+    /* Buttons */
+    #dugme, #dugme2, #dugme3 {
+        background-color: #20a3c7;
+        text-align: center;
+        color: white;
+        border: 1px solid grey;
+        border-radius: 60px;
+        padding: 20px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40%;
+        max-width: 200px;
+        margin: 10px auto;
+        text-decoration: none;
+    }
+
+    #dugme:hover, #dugme2:hover, #dugme3:hover {
+        transform: scale(1.1);
+        transition: 0.3s ease;
+        cursor: pointer;
+    }
+
+    /* Media Queries */
+    @media screen and (max-width: 768px) {
+        /* For small screens */
+        #header h1 {
+            font-size: 1.5em;
+        }
+
+        #nav a {
+            font-size: 14px;
+        }
+
+        .content-section, .content-section2, .content-section3 {
+            width: 95%;
+            padding: 10px;
+        }
+
+        #dugme, #dugme2, #dugme3 {
+            width: 70%;
+            padding: 15px;
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        /* For very small screens */
+        #header h1 {
+            font-size: 1.2em;
+        }
+
+        #dugme, #dugme2, #dugme3 {
+            width: 90%;
+            padding: 10px;
+        }
+
+        #nav a {
+            font-size: 12px;
+        }
+    }
+	
+	
+</style>
+</head>
+<body>
+
+<header>
+    <div class="header">
+        <div id="header">
+            <h1>Brzi kviz: Koliko znaš?</h1>
+        </div>
+    </div>
+</header>
+
+<nav>
+    <div id="nav">
+        <a href="KVIZ-iwt.html">Početna</a>
+        <a href="mailto:asija.omanovic@fsre.sum.ba">Kontakt</a>
+        <a href="prijava-iwt.html">Prijava</a>
+        <a href="registracija-iwt.html">Registracija</a>
+    </div>
+</nav>
+
+<main>
+   
+    <div class="content-section">
+        <h3>O historiji</h3>
+        <p>Historija je nauka koja proučava prošlost čovječanstva...</p>
+        <ul>
+            <li>Stari Egipat</li>
+            <li>Rimsko carstvo</li>
+            <li>Drugi svjetski rat</li>
+        </ul>
+		<div id="dugme">
+        <a href="historija-kviz.html">
+            <h3>Počni kviz</h3>
+        </a>
+    </div>
+    </div>
+    <div class="content-section2">
+        <h3>O Geografiji</h3>
+        <p>Geografija proučava fizičke karakteristike Zemlje...</p>
+        <ul>
+            <li>Kontinenti</li>
+            <li>Klimatske zone</li>
+            <li>Geografske koordinate</li>
+        </ul>
+		 <div id="dugme2">
+        <a href="geografija-kviz .html">
+            <h3>Počni kviz</h3>
+        </a>
+    </div>
+    </div>
+    <div class="content-section3">
+        <h3>O fizici</h3>
+        <p>Fizika proučava osnovne zakone prirode...</p>
+        <ul>
+            <li>Newtonovi zakoni</li>
+            <li>Električna energija</li>
+            <li>Mehanika</li>
+        </ul>
+		<div id="dugme3">
+        <a href="fizika-kviz.html">
+            <h3>Počni kviz</h3>
+        </a>
+    </div>
+    </div>
+
+    
+</main>
+
+<footer>
+    <div id="footer">
+        <h1>&copy; Asija Omanović | FSRE 2025</h1>
+    </div>
+</footer>
+
+</body>
+</html>

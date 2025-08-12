@@ -1,0 +1,94 @@
+<html>
+<head>
+<style>
+ body {
+            font-family: Arial, sans-serif;
+            background-color: #b8ebf5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .quiz-container {
+            background-color: #96cbd6;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 90%; /* Set the width to 90% of the screen */
+            max-width: 400px; /* Max width of 400px to prevent it from being too large on bigger screens */
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        .question {
+            font-size: 18px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .answer {
+            display: block;
+            background-color: lightblue;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 16px;
+        }
+
+        .answer:hover {
+            background-color: #dcdcdc;
+        }
+
+        #result {
+            font-size: 18px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #start-btn {
+            background-color: darkblue;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        /* Responsive design adjustments */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            .quiz-container {
+                width: 100%; /* Full width on small screens */
+                max-width: none; /* Remove max width */
+            }
+
+            .question {
+                font-size: 16px; /* Smaller font size for mobile */
+            }
+
+            .answer {
+                font-size: 14px; /* Smaller font size for answers */
+                padding: 12px; /* Adjust padding for better touch interaction */
+            }
+
+            #start-btn {
+                font-size: 14px; /* Adjust button font size */
+                padding: 12px; /* Adjust button padding */
+            }
+        }
+    </style>
+	</head>
+	</html>
